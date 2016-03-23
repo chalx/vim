@@ -24,6 +24,9 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
@@ -85,3 +88,7 @@ set tags=tags;/
 " YouCompleteMe
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Close NERDTree if is the last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
