@@ -21,7 +21,11 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe', {
+  \ 'build': {
+    \ 'unix': './install.sh --clang-completer --tern-completer'
+   \ }
+\}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'leafgarland/typescript-vim'
@@ -29,7 +33,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdtree'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-
+NeoBundle 'zhaocai/GoldenView.Vim'
 " Required:
 call neobundle#end()
 
@@ -91,4 +95,10 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Close NERDTree if is the last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <silent> <C-T><C-T> :NERDTreeToggle<CR>
 
+" Remove arrows 
+nnoremap <Up> ""
+nnoremap <Down> ""
+nnoremap <Left> ""
+nnoremap <Right> ""
