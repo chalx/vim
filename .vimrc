@@ -6,43 +6,43 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=~/.vim/bundle/neobundle.vim/
+if isdirectory(glob("~/.vim/bundle/neobundle.vim"))
+  call neobundle#begin(expand('~/.vim/bundle'))
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle'))
+  " Let NeoBundle manage NeoBundle
+  " Required:
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+  " Add or remove your Bundles here:
+  NeoBundle 'Shougo/neosnippet.vim'
+  NeoBundle 'Shougo/neosnippet-snippets'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'ctrlpvim/ctrlp.vim'
+  NeoBundle 'flazz/vim-colorschemes'
+  NeoBundle 'Valloric/YouCompleteMe'
+  NeoBundle 'bling/vim-airline'
+  NeoBundle 'derekwyatt/vim-scala'
+  NeoBundle 'leafgarland/typescript-vim'
+  NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'scrooloose/nerdtree'
+  NeoBundle "vim-airline/vim-airline-themes"
+  NeoBundle "airblade/vim-gitgutter"
+  NeoBundle "groenewege/vim-less"
+  " You can specify revision/branch/tag.
+  NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+  NeoBundle 'zhaocai/GoldenView.Vim'
+  " Required:
+  call neobundle#end()
 
-" Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle "vim-airline/vim-airline-themes"
-NeoBundle "airblade/vim-gitgutter"
-NeoBundle "groenewege/vim-less"
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-NeoBundle 'zhaocai/GoldenView.Vim'
-" Required:
-call neobundle#end()
+  " Required:
+  filetype plugin indent on
 
-" Required:
-filetype plugin indent on
+  " If there are uninstalled bundles found on startup,
+  " this will conveniently prompt you to install them.
+  NeoBundleCheck
+  "End NeoBundle Scripts-------------------------
+endif
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
 
 syntax on 
 set ruler
@@ -104,3 +104,16 @@ nnoremap <Right> ""
 
 " Set airline theme
 let g:airline_theme="hybridline"
+
+" If .vim folder is not created, then install NeoBundle
+function! InstallNeoBundle()
+    call system("curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh")
+    call system("sh install.sh")
+endfunction
+
+if !isdirectory(glob("~/.vim"))
+  :echo "Install NeoBundle. Please wait"
+  call InstallNeoBundle()
+  :so $MYVIMRC
+endif
+" End auto neobundle install
