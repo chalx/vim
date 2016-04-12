@@ -21,16 +21,15 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Valloric/YouCompleteMe', {
-  \ 'build': {
-    \ 'unix': './install.sh --clang-completer --tern-completer'
-   \ }
-\}
+NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle "vim-airline/vim-airline-themes"
+NeoBundle "airblade/vim-gitgutter"
+NeoBundle "groenewege/vim-less"
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'zhaocai/GoldenView.Vim'
@@ -102,3 +101,6 @@ nnoremap <Up> ""
 nnoremap <Down> ""
 nnoremap <Left> ""
 nnoremap <Right> ""
+
+" Set airline theme
+let g:airline_theme="hybridline"
