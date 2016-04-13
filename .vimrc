@@ -30,6 +30,7 @@ if isdirectory(glob("~/.vim/bundle/neobundle.vim"))
   NeoBundle "vim-airline/vim-airline-themes"
   NeoBundle "airblade/vim-gitgutter"
   NeoBundle "groenewege/vim-less"
+  NeoBundle "myusuf3/numbers.vim"
   " You can specify revision/branch/tag.
   NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
   NeoBundle 'zhaocai/GoldenView.Vim'
