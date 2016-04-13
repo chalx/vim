@@ -5,6 +5,8 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+set runtimepath^=~/.vim/neobundle.vim/
+
 " Required:
 if isdirectory(glob("~/.vim/bundle/neobundle.vim"))
   call neobundle#begin(expand('~/.vim/bundle'))
