@@ -16,8 +16,7 @@ if isdirectory(glob("~/.vim/bundle/neobundle.vim"))
   NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Add or remove your Bundles here:
-  NeoBundle 'Shougo/neosnippet.vim'
-  NeoBundle 'Shougo/neosnippet-snippets'
+  NeoBundle 'honza/vim-snippets'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'ctrlpvim/ctrlp.vim'
   NeoBundle 'flazz/vim-colorschemes'
@@ -108,6 +107,9 @@ nnoremap <Right> ""
 " Set airline theme
 let g:airline_theme="hybridline"
 
+" CtrlP
+let g:ctrlp_map = '<c-f><c-f>'
+
 " If .vim folder is not created, then install NeoBundle
 function! InstallNeoBundle()
     call system("curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh")
@@ -120,3 +122,7 @@ if !isdirectory(glob("~/.vim"))
   :so $MYVIMRC
 endif
 " End auto neobundle install
+
+" Move line one up or down
+nnoremap <silent><A-j> :m .+1<CR>==
+nnoremap <silent><A-k> :m .-2<CR>==
