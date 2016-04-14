@@ -45,7 +45,6 @@ if isdirectory(glob("~/.vim/bundle/neobundle.vim/"))
   "End NeoBundle Scripts-------------------------
 endif
 
-
 syntax on 
 set ruler
 set number
@@ -90,6 +89,8 @@ set nobackup
 set noswapfile
 set tags=tags;/
 
+colorscheme Monokai
+
 " YouCompleteMe
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -103,6 +104,12 @@ nnoremap <Up> ""
 nnoremap <Down> ""
 nnoremap <Left> ""
 nnoremap <Right> ""
+
+" Set tabs most used comamnds
+nmap <C-t> :tabnew<CR>
+nmap tr :tabprevious<CR>
+nmap ty :tabnext<CR>
+nmap tc :tabclose<CR>
 
 " Set airline theme
 let g:airline_theme="hybridline"
