@@ -5,11 +5,11 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-set runtimepath^=~/.vim/neobundle.vim/
-
 " Required:
-if isdirectory(glob("~/.vim/bundle/neobundle.vim"))
-  call neobundle#begin(expand('~/.vim/bundle'))
+if isdirectory(glob("~/.vim/bundle/neobundle.vim/"))
+	set runtimepath^=~/.vim/bundle/neobundle.vim/
+
+  call neobundle#begin(expand('~/.vim/bundle/'))
 
   " Let NeoBundle manage NeoBundle
   " Required:
@@ -124,5 +124,5 @@ endif
 " End auto neobundle install
 
 " Move line one up or down
-nnoremap <silent><A-j> :m .+1<CR>==
-nnoremap <silent><A-k> :m .-2<CR>==
+nnoremap <silent><A-j> :m .+1<CR>
+nnoremap <silent><A-k> :m .-2<CR>
